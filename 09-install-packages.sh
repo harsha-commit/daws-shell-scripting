@@ -10,7 +10,7 @@ fi
 
 dnf install mysql -y
 
-if [$? -eq 0]
+if [ $? -eq 0 ]
 then
     echo "Installation of mysql ... SUCCESS"
 else
@@ -19,7 +19,7 @@ fi
 
 dnf install git -y
 
-if [$? -eq 0]
+if [ $? -eq 0 ]
 then
     echo "Installation of git ... SUCCESS"
 else
