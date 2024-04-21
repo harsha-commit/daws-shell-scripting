@@ -12,10 +12,10 @@ W="\e[0m"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "$2...$R FAILED"
+        echo -e "$2...$R FAILED"
         exit 1
     else
-        echo "$2...$G SUCCESS"
+        echo -e "$2...$G SUCCESS"
     fi
 }
 
