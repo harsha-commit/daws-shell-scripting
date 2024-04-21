@@ -18,7 +18,7 @@ fi
 for i in $@
 do
     echo "Package to install: $i"
-    dnf installed list $i &>> $LOGFILE
+    dnf list installed $i &>> $LOGFILE
 
     if [ $? -ne 0 ]
     then
