@@ -9,6 +9,16 @@ G="\e[32m"
 Y="\e[33m"
 W="\e[0m"
 
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then
+        echo -e "$2...$R FAILED $W"
+        exit 1
+    else
+        echo -e "$2...$G SUCCESS $W"
+    fi
+}
+
 if [ $USERID -ne 0 ]
 then
     echo "Please run this script as super user"
@@ -22,9 +32,11 @@ do
 
     if [ $? -eq 0 ]
     then
-        echo -e "$i already installed...$Y SKIPPED $W"
+        echo -e "$i already installed...$Y SKIPPING $W"
     else
         echo "$i installation started..."
+        dnf install $i -y &>> $LOGFILE
+        VALIDATE $? "Installing $i"
     fi
 
 done
