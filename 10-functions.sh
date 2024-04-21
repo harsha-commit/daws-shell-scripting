@@ -18,8 +18,11 @@ then
     exit 1
 fi
 
-dnfe install mysql -y
+dnf install mysql -y
 
 VALIDATE $? "Installing MySQL"
 
 dnf install git -y
+
+VALIDATE $? "Installing Git"
+
