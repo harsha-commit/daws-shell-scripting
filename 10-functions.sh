@@ -1,14 +1,17 @@
 #!/bin/bash
 
 USERID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%M-%S)
+SCRIPTNAME=$(echo $0 | cut -d '.' -f 1)
+LOGFILE="/tmp/$SCRIPTNAME.log"
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 ... FAILED"
+        echo "$2...FAILED"
         exit 1
     else
-        echo "$2 ... SUCCESS"
+        echo "$2...SUCCESS"
     fi
 }
 
