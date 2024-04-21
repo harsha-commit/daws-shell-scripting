@@ -3,7 +3,13 @@
 USERID=$(id -u)
 
 VALIDATE(){
-    echo "Exit status: $1"
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 ... FAILED"
+        exit 1
+    else
+        echo "$2 ... SUCCESS"
+    fi
 }
 
 if [ $USERID -ne 0 ]
@@ -12,7 +18,7 @@ then
     exit 1
 fi
 
-dnf install mysql -y
+dnfe install mysql -y
 
 VALIDATE $? "Installing MySQL"
 
