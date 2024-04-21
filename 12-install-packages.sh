@@ -34,9 +34,8 @@ do
     then
         echo -e "$i already installed...$Y SKIPPING $W"
     else
-        echo "$i installation started..."
+        # echo "$i installation started..."
         dnf install $i -y &>> $LOGFILE
         VALIDATE $? "Installing $i"
     fi
-
 done
